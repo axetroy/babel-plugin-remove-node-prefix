@@ -104,7 +104,22 @@ const esm: Array<TestCase> = [
   [
     `import fs, { readFile } from "node:fs";`,
     `import fs, { readFile } from "fs";`
-  ]
+  ],
+  // esm: export all
+  [
+    `export * from "node:fs";`,
+    `export * from "fs";`,
+  ],
+  // esm: export named
+  [
+    `export { readFile } from "node:fs";`,
+    `export { readFile } from "fs";`,
+  ],
+  // esm: export default
+  [
+    `export * as fs from "node:fs";`,
+    `export * as fs from "fs";`,
+  ],
 ]
 
 testSnapshot('esm', esm);

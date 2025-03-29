@@ -10,6 +10,8 @@ function babelPluginRemoveNodePrefix(babel: typeof Babel) {
             StringLiteral(path) {
                 const isImportOrRequire =
                     t.isImportDeclaration(path.parent) ||
+                    t.isExportAllDeclaration(path.parent) ||
+                    t.isExportNamedDeclaration(path.parent) ||
                     (t.isCallExpression(path.parent) &&
                         ((t.isIdentifier(path.parent.callee) &&
                             (path.parent.callee.name === "require" || path.parent.callee.name === "import")) ||
