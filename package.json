@@ -1,6 +1,6 @@
 {
     "name": "babel-plugin-remove-node-prefix",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "private": false,
     "description": "A Babel plugin to remove node prefix",
     "sideEffects": false,
