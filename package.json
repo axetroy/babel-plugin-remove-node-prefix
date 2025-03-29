@@ -1,0 +1,67 @@
+{
+    "name": "babel-plugin-remove-node-prefix",
+    "version": "1.0.0",
+    "private": false,
+    "description": "A Babel plugin to remove node prefix",
+    "sideEffects": false,
+    "files": [
+        "dist"
+    ],
+    "type": "commonjs",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.mjs",
+    "exports": {
+        "./package.json": {
+            "import": "./package.json",
+            "require": "./package.json"
+        },
+        ".": {
+            "require": {
+                "default": "./dist/cjs/index.js",
+                "types": "./dist/cjs/index.d.ts"
+            },
+            "import": {
+                "default": "./dist/esm/index.mjs",
+                "types": "./dist/esm/index.d.ts"
+            }
+        }
+    },
+    "scripts": {
+        "test": "node --import tsx --test **/*.test.ts",
+        "test:update-snapshot": "node --import tsx --test-update-snapshots --test **/*.test.ts ",
+        "build": "knip && rslib build",
+        "prepack": "npm run build"
+    },
+    "author": "Axetroy <axetroy.dev@gmail.com>",
+    "license": "SEE LICENSE IN LICENSE",
+    "devDependencies": {
+        "@babel/code-frame": "^7.26.2",
+        "@babel/core": "^7.26.10",
+        "@rslib/core": "^0.6.0",
+        "@types/babel__code-frame": "^7.0.6",
+        "@types/babel__core": "^7.20.5",
+        "@types/node": "^22.10.2",
+        "knip": "^5.46.3",
+        "outdent": "^0.8.0",
+        "prettier": "^3.5.3",
+        "tsx": "^4.19.2",
+        "typescript": "^5.7.2"
+    },
+    "keywords": [
+        "babel",
+        "plugin",
+        "transform",
+        "fs-promises"
+    ],
+    "homepage": "https://github.com/axetroy/babel-plugin-remove-node-prefix#readme",
+    "bugs": {
+        "url": "https://github.com/axetroy/babel-plugin-remove-node-prefix/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/axetroy/babel-plugin-remove-node-prefix.git"
+    },
+    "peerDependencies": {
+        "@babel/core": "^7.0.0"
+    }
+}

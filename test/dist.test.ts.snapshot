@@ -1,0 +1,22 @@
+exports[`test cjs output 1`] = `
+
+> cjs@1.0.0 test
+> node index.cjs
+
+{
+  babelPluginRemoveNodePrefix: [Function: babelPluginRemoveNodePrefix],
+  default: [Function: babelPluginRemoveNodePrefix]
+}
+const fs = require('fs/promises');
+
+`;
+
+exports[`test esm output 1`] = `
+
+> esm@1.0.0 test
+> node index.mjs
+
+[Function: babelPluginRemoveNodePrefix]
+const fs = require('fs/promises');
+
+`;

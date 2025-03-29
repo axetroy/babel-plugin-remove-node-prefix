@@ -1,0 +1,84 @@
+exports[`transform-fs-promises: cjs > const fs = require("node:fs"); 1`] = `
+### Input
+
+      1 | const fs = require("node:fs");
+
+### Output
+
+      1 | const fs = require("fs");
+`;
+
+exports[`transform-fs-promises: cjs > const { readFile } = require("node:fs"); 1`] = `
+### Input
+
+      1 | const { readFile } = require("node:fs");
+
+### Output
+
+      1 | const {
+      2 |   readFile
+      3 | } = require("fs");
+`;
+
+exports[`transform-fs-promises: cjs > const { readFile, stat } = require("node:fs"); 1`] = `
+### Input
+
+      1 | const { readFile, stat } = require("node:fs");
+
+### Output
+
+      1 | const {
+      2 |   readFile,
+      3 |   stat
+      4 | } = require("fs");
+`;
+
+exports[`transform-fs-promises: esm > const fs = import("node:fs"); 1`] = `
+### Input
+
+      1 | const fs = import("node:fs");
+
+### Output
+
+      1 | const fs = import("fs");
+`;
+
+exports[`transform-fs-promises: esm > import fs from "node:fs"; 1`] = `
+### Input
+
+      1 | import fs from "node:fs";
+
+### Output
+
+      1 | import fs from "fs";
+`;
+
+exports[`transform-fs-promises: esm > import fs, { readFile } from "node:fs"; 1`] = `
+### Input
+
+      1 | import fs, { readFile } from "node:fs";
+
+### Output
+
+      1 | import fs, { readFile } from "fs";
+`;
+
+exports[`transform-fs-promises: esm > import { readFile } from "node:fs"; 1`] = `
+### Input
+
+      1 | import { readFile } from "node:fs";
+
+### Output
+
+      1 | import { readFile } from "fs";
+`;
+
+exports[`transform-fs-promises: esm > import { readFile, stat } from "node:fs"; 1`] = `
+### Input
+
+      1 | import { readFile, stat } from "node:fs";
+
+### Output
+
+      1 | import { readFile, stat } from "fs";
+`;
