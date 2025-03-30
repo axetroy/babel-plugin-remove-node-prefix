@@ -8,14 +8,16 @@ function babelPluginRemoveNodePrefix(babel: typeof Babel) {
         name: "remove-node-prefix",
         visitor: {
             StringLiteral(path) {
+                const { parent } = path;
+
                 const isImportOrRequire =
-                    t.isImportDeclaration(path.parent) ||
-                    t.isExportAllDeclaration(path.parent) ||
-                    t.isExportNamedDeclaration(path.parent) ||
-                    (t.isCallExpression(path.parent) &&
-                        ((t.isIdentifier(path.parent.callee) &&
-                            (path.parent.callee.name === "require" || path.parent.callee.name === "import")) ||
-                            t.isImport(path.parent.callee)));
+                    t.isImportDeclaration(parent) ||
+                    t.isExportAllDeclaration(parent) ||
+                    t.isExportNamedDeclaration(parent) ||
+                    (t.isCallExpression(parent) &&
+                        (t.isImport(parent.callee) ||
+                            t.isIdentifier(parent.callee, { name: "require" }) ||
+                            t.isIdentifier(parent.callee, { name: "import" })));
 
                 if (isImportOrRequire && path.node.value.startsWith("node:")) {
                     // Remove `node:` prefix from the path
